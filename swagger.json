@@ -1,0 +1,2358 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "BookingAPI",
+        "version": "1.0",
+        "description": "BookingAPI Make By Kiezet"
+    },
+    "servers": [
+        {
+            "url": "https://bookingapiiiii.herokuapp.com"
+        }
+    ],
+    "tags": [
+        {
+            "name": "page-insert-new-book"
+        },
+        {
+            "name": "Phân Trang"
+        },
+        {
+            "name": "page-home"
+        },
+        {
+            "name": "Mail"
+        },
+        {
+            "name": "Upload Image"
+        },
+        {
+            "name": "Banner"
+        },
+        {
+            "name": "Admin"
+        },
+        {
+            "name": "Account"
+        },
+        {
+            "name": "Chi Tiết Đơn Hàng"
+        },
+        {
+            "name": "Đơn Hàng"
+        },
+        {
+            "name": "Khách Hàng"
+        },
+        {
+            "name": "Nhà Xuất Bản"
+        },
+        {
+            "name": "Sách"
+        },
+        {
+            "name": "Tác Giả"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Banner": {
+                "type": "object",
+                "required": [
+                    "Anh1",
+                    "Anh2",
+                    "Anh3"
+                ],
+                "properties": {
+                    "Anh1": {
+                        "type": "string"
+                    },
+                    "Anh2": {
+                        "type": "string"
+                    },
+                    "Anh3": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "Anh1": "https://nxbphunu.com.vn/wp-content/uploads/2020/02/banner-hoi-sach.jpg",
+                    "Anh2": "https://amovietnam.vn/wp-content/uploads/2016/02/banner-doc-sach-vi-tuong-lai-amo-vietnam-2018.jpg",
+                    "Anh3": "https://pvm.com.vn/wp-content/uploads/2017/11/banner-sach.jpg"
+                }
+            },
+            "ChuDe": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "TenChuDe"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "TenChuDe": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "q2312asdasd3123qbngdge",
+                    "TenChuDe": "Hành Động"
+                }
+            },
+            "chudebyid": {
+                "type": "object",
+                "required": [
+                    "id"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "q2312asdasd3123qbngdge"
+                }
+            },
+            "CTDH": {
+                "type": "object",
+                "required": [
+                    "MaDonHang",
+                    "Masach",
+                    "Soluong",
+                    "Dongia"
+                ],
+                "properties": {
+                    "MaDonHang": {
+                        "type": "string"
+                    },
+                    "Masach": {
+                        "type": "string"
+                    },
+                    "Soluong": {
+                        "type": "number"
+                    },
+                    "Dongia": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "MaDonHang": "6211b5437ebcc6362eec81cd",
+                    "Masach": "6214f418e944a4fcbdddead0",
+                    "Soluong": 4,
+                    "Dongia": 13.5
+                }
+            },
+            "DonHang": {
+                "type": "object",
+                "required": [
+                    "Dathanhtoan",
+                    "Tinhtranggiaohang",
+                    "Ngaydat",
+                    "TongTien",
+                    "MaKH",
+                    "MasachCheck",
+                    "SoluongCheck"
+                ],
+                "properties": {
+                    "Dathanhtoan": {
+                        "type": "boolean"
+                    },
+                    "Tinhtranggiaohang": {
+                        "type": "boolean"
+                    },
+                    "Ngaydat": {
+                        "type": "string"
+                    },
+                    "TongTien": {
+                        "type": "number"
+                    },
+                    "MaKH": {
+                        "type": "string"
+                    },
+                    "MasachCheck": {
+                        "type": "array"
+                    },
+                    "SoluongCheck": {
+                        "type": "array"
+                    }
+                },
+                "example": {
+                    "Dathanhtoan": true,
+                    "Tinhtranggiaohang": false,
+                    "Ngaydat": "2018-07-21",
+                    "TongTien": 300,
+                    "MaKH": "6211994415bdb57fea04a4a5",
+                    "MasachCheck": [
+                        "6211b5437ebcc6362eec81cd",
+                        "6211b5437ebcc6362eec81cd"
+                    ],
+                    "SoluongCheck": [
+                        3,
+                        2
+                    ]
+                }
+            },
+            "CapNhatDonHang": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "Dathanhtoan",
+                    "Tinhtranggiaohang",
+                    "Ngaygiao"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "Tinhtranggiaohang": {
+                        "type": "boolean"
+                    }
+                },
+                "example": {
+                    "id": "6211b5437ebcc6362eec81cd",
+                    "Tinhtranggiaohang": true
+                }
+            },
+            "Signin": {
+                "type": "object",
+                "required": [
+                    "Taikhoan",
+                    "Matkhau"
+                ],
+                "properties": {
+                    "Taikhoan": {
+                        "type": "string"
+                    },
+                    "Matkhau": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "Taikhoan": "dung",
+                    "Matkhau": "123"
+                }
+            },
+            "Signup": {
+                "type": "object",
+                "required": [
+                    "HoTen",
+                    "Taikhoan",
+                    "Matkhau",
+                    "ConfirmMatKhau"
+                ],
+                "properties": {
+                    "HoTen": {
+                        "type": "string"
+                    },
+                    "Taikhoan": {
+                        "type": "string"
+                    },
+                    "Matkhau": {
+                        "type": "string"
+                    },
+                    "ConfirmMatKhau": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "HoTen": "Nguyễn Văn A",
+                    "Taikhoan": "NVA",
+                    "Matkhau": "123",
+                    "ConfirmMatKhau": "123"
+                }
+            },
+            "Profile": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "HoTen",
+                    "Anh",
+                    "Email",
+                    "DiachiKH",
+                    "DienthoaiKH",
+                    "Ngaysinh"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "HoTen": {
+                        "type": "string"
+                    },
+                    "Anh": {
+                        "type": "string"
+                    },
+                    "Email": {
+                        "type": "string"
+                    },
+                    "DiachiKH": {
+                        "type": "string"
+                    },
+                    "DienthoaiKH": {
+                        "type": "string"
+                    },
+                    "Ngaysinh": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "6214f625fd851f259a349054",
+                    "HoTen": "Nguyễn Đình Anh Kiệt",
+                    "Email": "Kizzz@gmail.com",
+                    "DiachiKH": "Ấp Ràng, Trung Lập Thượng, Huyện Củ Chi",
+                    "DienthoaiKH": "0385447813",
+                    "Ngaysinh": "2022-04-08",
+                    "Anh": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAZACgADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oAD"
+                }
+            },
+            "NXB": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "TenNXB",
+                    "Diachi",
+                    "DienThoai"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "TenNXB": {
+                        "type": "string"
+                    },
+                    "Diachi": {
+                        "type": "string"
+                    },
+                    "DienThoai": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "q2312asdasd3123qbngdge",
+                    "TenNXB": "Kim Đồng",
+                    "Diachi": "Thành Phố Hồ Chí Minh",
+                    "DienThoai": "0354698745"
+                }
+            },
+            "NXBnoid": {
+                "type": "object",
+                "required": [
+                    "TenNXB",
+                    "Diachi",
+                    "DienThoai"
+                ],
+                "properties": {
+                    "TenNXB": {
+                        "type": "string"
+                    },
+                    "Diachi": {
+                        "type": "string"
+                    },
+                    "DienThoai": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "TenNXB": "Kim Đồng",
+                    "Diachi": "Thành Phố Hồ Chí Minh",
+                    "DienThoai": "0354698745"
+                }
+            },
+            "NewBook": {
+                "type": "object",
+                "required": [
+                    "Tensach",
+                    "Giaban",
+                    "Mota",
+                    "Anhbia",
+                    "Soluongton",
+                    "MaCD",
+                    "MaNXB",
+                    "MaTacGia"
+                ],
+                "properties": {
+                    "Tensach": {
+                        "type": "string"
+                    },
+                    "Giaban": {
+                        "type": "number"
+                    },
+                    "Mota": {
+                        "type": "string"
+                    },
+                    "Anhbia": {
+                        "type": "string"
+                    },
+                    "Soluongton": {
+                        "type": "number"
+                    },
+                    "MaCD": {
+                        "type": "array"
+                    },
+                    "MaNXB": {
+                        "type": "string"
+                    },
+                    "MaTacGia": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "Tensach": "99TH VAMPIRE PRINCESS ~THE LAST VAMPIRE~",
+                    "Giaban": 12.6,
+                    "Mota": "Tsukumo Jin đã vô tình giải phóng sinh vật huyền thoại mạnh mẽ nhất, ma cà rồng. Bây giờ bị ràng buộc với cô, anh ta đóng vai trò như một người hầu của cô. Cô gái ma cà rồng nhỏ này bám lấy anh hàng ngày đến nỗi Jin cũng phải thực hiện vai trò người yêu của mình đối với cô. Ngoài ra, anh còn phải cứu em gái của chính mình. Cùng với sự giúp đỡ của Ayase, một học sinh bí ẩn, họ đã cùng nhau khởi hành để khám phá bí ẩn của một loạt các truyền thuyết đô thị. Cuối cùng, họ sẽ phải đối đầu với kẻ chủ mưu dàn dựng các sự kiện đằng sau mọi thứ – ma cà rồng cuối cùng.",
+                    "Anhbia": "https://i.imgur.com/le6CtqI.jpg",
+                    "Soluongton": 1,
+                    "MaCD": [
+                        "621336575c11d30164feda18"
+                    ],
+                    "MaNXB": "??",
+                    "MaTacGia": "6219f39a4f3ba73b598e2c9b"
+                }
+            },
+            "NewBookID": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "Tensach",
+                    "Giaban",
+                    "Mota",
+                    "Anhbia",
+                    "Soluongton",
+                    "MaCD",
+                    "MaNXB",
+                    "MaTacGia"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "Tensach": {
+                        "type": "string"
+                    },
+                    "Giaban": {
+                        "type": "number"
+                    },
+                    "Mota": {
+                        "type": "string"
+                    },
+                    "Anhbia": {
+                        "type": "string"
+                    },
+                    "Soluongton": {
+                        "type": "number"
+                    },
+                    "MaCD": {
+                        "type": "array"
+                    },
+                    "MaNXB": {
+                        "type": "string"
+                    },
+                    "MaTacGia": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "d4684das54dag1fg4ghj8uy",
+                    "Tensach": "99TH VAMPIRE PRINCESS ~THE LAST VAMPIRE~",
+                    "Giaban": 12.6,
+                    "Mota": "Tsukumo Jin đã vô tình giải phóng sinh vật huyền thoại mạnh mẽ nhất, ma cà rồng. Bây giờ bị ràng buộc với cô, anh ta đóng vai trò như một người hầu của cô. Cô gái ma cà rồng nhỏ này bám lấy anh hàng ngày đến nỗi Jin cũng phải thực hiện vai trò người yêu của mình đối với cô. Ngoài ra, anh còn phải cứu em gái của chính mình. Cùng với sự giúp đỡ của Ayase, một học sinh bí ẩn, họ đã cùng nhau khởi hành để khám phá bí ẩn của một loạt các truyền thuyết đô thị. Cuối cùng, họ sẽ phải đối đầu với kẻ chủ mưu dàn dựng các sự kiện đằng sau mọi thứ – ma cà rồng cuối cùng.",
+                    "Anhbia": "https://i.imgur.com/le6CtqI.jpg",
+                    "Soluongton": 1,
+                    "MaCD": [
+                        "621336575c11d30164feda18"
+                    ],
+                    "MaNXB": "??",
+                    "MaTacGia": "6219f39a4f3ba73b598e2c9b"
+                }
+            },
+            "RepairBook": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "Tensach",
+                    "Giaban",
+                    "Mota",
+                    "Anhbia",
+                    "Soluongton",
+                    "MaCD",
+                    "MaNXB",
+                    "MaTacGia"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "Tensach": {
+                        "type": "string"
+                    },
+                    "Giaban": {
+                        "type": "number"
+                    },
+                    "Mota": {
+                        "type": "string"
+                    },
+                    "Anhbia": {
+                        "type": "string"
+                    },
+                    "Soluongton": {
+                        "type": "number"
+                    },
+                    "MaCD": {
+                        "type": "array"
+                    },
+                    "MaNXB": {
+                        "type": "string"
+                    },
+                    "MaTacGia": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "ad5a4sd8a49v3x2c1vd8f4g",
+                    "Tensach": "99TH VAMPIRE PRINCESS ~THE LAS VAMPIRE~",
+                    "Giaban": 12.6,
+                    "Mota": "Tsukumo Jin đã vô tình giải phóng sinh vật huyền thoại mạnh mẽ nhất, ma cà rồng. Bây giờ bị ràng buộc với cô, anh ta đóng vai trò như một người hầu của cô. Cô gái ma cà rồng nhỏ này bám lấy anh hàng ngày đến nỗi Jin cũng phải thực hiện vai trò người yêu của mình đối với cô. Ngoài ra, anh còn phải cứu em gái của chính mình. Cùng với sự giúp đỡ của Ayase, một học sinh bí ẩn, họ đã cùng nhau khởi hành để khám phá bí ẩn của một loạt các truyền thuyết đô thị. Cuối cùng, họ sẽ phải đối đầu với kẻ chủ mưu dàn dựng các sự kiện đằng sau mọi thứ – ma cà rồng cuối cùng.",
+                    "Anhbia": "https://firebasestorage.googleapis.com/v0/b/chat-1e086.appspot.com/o/99Vampi.jpg?alt=media&token=03bc78d5-84f6-4a11-b2b3-1744395bdb25",
+                    "Soluongton": 1,
+                    "MaCD": "621336575c11d30164feda18",
+                    "MaNXB": "??",
+                    "MaTacGia": "6219f39a4f3ba73b598e2c9b"
+                }
+            },
+            "SellBook": {
+                "type": "object",
+                "required": [
+                    "id",
+                    " soluongban"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "soluongban": {
+                        "type": "number"
+                    }
+                },
+                "example": {
+                    "id": "ad5a4sd8a49v3x2c1vd8f4g",
+                    "soluongban": 1
+                }
+            },
+            "TG": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "TenTG",
+                    "Diachi",
+                    "Tieusu",
+                    "Dienthoai"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "TenTG": {
+                        "type": "string"
+                    },
+                    "Diachi": {
+                        "type": "string"
+                    },
+                    "Tieusu": {
+                        "type": "string"
+                    },
+                    "Dienthoai": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "id": "q2312asdasd3123qbngdge",
+                    "TenTG": "Kim Đồng",
+                    "Diachi": "Thành Phố Hồ Chí Minh",
+                    "Tieusu": "Wong Cho-keung (15 tháng 3 năm 1952 - 5 tháng 4 năm 2017)",
+                    "Dienthoai": "0354698745"
+                }
+            },
+            "TGnoid": {
+                "type": "object",
+                "required": [
+                    "TenTG",
+                    "Diachi",
+                    "Tieusu",
+                    "Dienthoai"
+                ],
+                "properties": {
+                    "TenTG": {
+                        "type": "string"
+                    },
+                    "Diachi": {
+                        "type": "string"
+                    },
+                    "Tieusu": {
+                        "type": "string"
+                    },
+                    "Dienthoai": {
+                        "type": "string"
+                    }
+                },
+                "example": {
+                    "TenTG": "Kim Đồng",
+                    "Diachi": "Thành Phố Hồ Chí Minh",
+                    "Tieusu": "Wong Cho-keung (15 tháng 3 năm 1952 - 5 tháng 4 năm 2017)",
+                    "Dienthoai": "0354698745"
+                }
+            }
+        }
+    },
+    "paths": {
+        "/home": {
+            "get": {
+                "summary": "api cho nguyên trang home",
+                "tags": [
+                    "page-home"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/PhanTrang/{page}/{limit}": {
+            "get": {
+                "summary": "Phân Trang",
+                "tags": [
+                    "Phân Trang"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập page"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Số Sách Giới Hạn Trong 1 Trang"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/PhanTrangDonHang/{page}/{limit}": {
+            "get": {
+                "summary": "Phân Trang",
+                "tags": [
+                    "Phân Trang"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập page"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Số Đơn Hàng Giới Hạn Trong 1 Trang"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/PhanTrangChuDe/{id}/{page}/{limit}": {
+            "get": {
+                "summary": "Phân Trang",
+                "tags": [
+                    "Phân Trang"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Chủ Đề"
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập page"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Số Chủ Đề Giới Hạn Trong 1 Trang"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/PhanTrangSearch": {
+            "post": {
+                "summary": "Phân Trang",
+                "tags": [
+                    "Phân Trang"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Nhập KeyWord Để Tìm Sách",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "keyword": {
+                                        "type": "string"
+                                    },
+                                    "page": {
+                                        "type": "number"
+                                    },
+                                    "limit": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "keyword": "sach tieng viet",
+                                    "page": 1,
+                                    "limit": 8
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/DonHang/{page}/{limit}/{Ngaydat}/{GioiHan}/{idKH}": {
+            "get": {
+                "summary": "Phân Trang",
+                "tags": [
+                    "Phân Trang"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập page"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Số Đơn Hàng Giới Hạn Trong 1 Trang"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Ngaydat",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Creation date",
+                            "example": "2022-03-01"
+                        },
+                        "description": "Nhập Ngày Đặt"
+                    },
+                    {
+                        "in": "path",
+                        "name": "GioiHan",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Creation date",
+                            "example": "2022-03-22"
+                        },
+                        "description": "Nhập Ngày Giới Hạn"
+                    },
+                    {
+                        "in": "path",
+                        "name": "idKH",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Khách Hàng"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/GETALL": {
+            "get": {
+                "summary": "api cho nguyên trang Thêm Mới Sách",
+                "tags": [
+                    "page-insert-new-book"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/getdeleted": {
+            "get": {
+                "summary": "Những Cuốn Sách Đã Bị Xóa",
+                "tags": [
+                    "page-insert-new-book"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/Sendmail/{Mail}": {
+            "get": {
+                "summary": "Gửi Mail",
+                "tags": [
+                    "Mail"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Mail",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mail Cần Gửi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/open-image/{filename}": {
+            "get": {
+                "summary": "Upload Ảnh",
+                "tags": [
+                    "Upload Image"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "filename",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Tên Ảnh"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/upload-image": {
+            "post": {
+                "summary": "Upload Ảnh",
+                "tags": [
+                    "Upload Image"
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "img": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/Banner": {
+            "get": {
+                "summary": "Get Banner",
+                "tags": [
+                    "Banner"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Sửa Banner",
+                "tags": [
+                    "Banner"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Banner"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Responses như sau",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Banner"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Banner1/{NameAnh}": {
+            "put": {
+                "summary": "Sửa Từn Ảnh Banner 1",
+                "tags": [
+                    "Banner"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "NameAnh",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Anh1 or Anh2 or Anh3"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "Image": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "Image": "http://localhost:3000/open-image/img_12391827398741.jpg"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "I Don't Know"
+                    }
+                }
+            }
+        },
+        "/chude": {
+            "get": {
+                "summary": "Get Danh Sách Chủ Đề",
+                "tags": [
+                    "Chủ Đề"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Thêm Chủ Đề Mới",
+                "tags": [
+                    "Chủ Đề"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "TenChuDe"
+                                ],
+                                "properties": {
+                                    "TenChuDe": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Responses như sau",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "TenChuDe": {
+                                            "type": "string"
+                                        },
+                                        "_id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Sửa Chủ Đề Theo ID",
+                "tags": [
+                    "Chủ Đề"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChuDe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Responses như sau",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "TenChuDe": {
+                                            "type": "string"
+                                        },
+                                        "_id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/chudebyid/{id}": {
+            "get": {
+                "summary": "Tìm Chủ Đề Theo ID",
+                "tags": [
+                    "Chủ Đề"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Chủ Đề Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Responses như sau là đúng",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChuDe"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Xóa Chủ Đề Theo ID",
+                "tags": [
+                    "Chủ Đề"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Chủ Đề Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/chudebyname/{name}": {
+            "get": {
+                "summary": "Tìm Chủ Đề Theo Tên",
+                "tags": [
+                    "Chủ Đề"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Tên Chủ Đề Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Như sau",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChuDe"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/CTDonHang": {
+            "get": {
+                "summary": "Get Danh Sách Chi Tiết Đơn Hàng",
+                "tags": [
+                    "Chi Tiết Đơn Hàng"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Thêm Chi Tiết Đơn Hàng Mới",
+                "tags": [
+                    "Chi Tiết Đơn Hàng"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CTDH"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/CTDonHangbyid/{id}": {
+            "get": {
+                "summary": "Get Danh Sách Chi Tiết Đơn Hàng Theo Mã Đơn Hàng",
+                "tags": [
+                    "Chi Tiết Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Đơn Hàng Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Xóa Chi Tiết Đơn Hàng Theo Mã Đơn Hàng",
+                "tags": [
+                    "Chi Tiết Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Đơn Hàng Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/DonHang": {
+            "get": {
+                "summary": "Get Danh Sách Đơn Hàng",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    },
+                    "404": {
+                        "description": "Not Found Data"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Cập Nhật Trình Trạng Giao Hàng",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CapNhatDonHang"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Thêm Đơn Hàng Mới",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DonHang"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/DonHang/{page}/{limit}": {
+            "get": {
+                "summary": "Get Danh Sách Đơn Hàng",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Trang",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Số Đơn Trong 1 Trang",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    },
+                    "404": {
+                        "description": "Not Found Data"
+                    }
+                }
+            }
+        },
+        "/DonHangbyidKH/{idKH}/{page}/{limit}": {
+            "get": {
+                "summary": "Tìm Đơn Hàng Theo ID Khách Hàng Và Phân Trang",
+                "tags": [
+                    "Phân Trang"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "idKH",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Khách Hàng"
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Nhập Số Trang"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Nhập Giới Hạn Sách Trong 1 trang"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/DonHangbyidKH/{idKH}": {
+            "get": {
+                "summary": "Tìm Đơn Hàng Theo ID",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "idKH",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Khách Hàng"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/DonHangbyid/{id}": {
+            "get": {
+                "summary": "Tìm Đơn Hàng Theo ID",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Đơn Hàng Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Xóa Đơn Hàng",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Đơn Hàng"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/DonHang/{idKH}/{Ngaydat}/{GioiHan}": {
+            "get": {
+                "summary": "Tìm Đơn Hàng Theo ID Khách Hàng",
+                "tags": [
+                    "Đơn Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "idKH",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Khách Hàng Vào Đây"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Ngaydat",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Creation date",
+                            "example": "2022-03-01"
+                        },
+                        "description": "Nhập Ngày Đặt"
+                    },
+                    {
+                        "in": "path",
+                        "name": "GioiHan",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "description": "Creation date",
+                            "example": "2022-03-22"
+                        },
+                        "description": "Nhập Ngày Giới Hạn"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/khachhangbyid/{id}": {
+            "get": {
+                "summary": "Get Thông Tin Khách Hàng Theo ID",
+                "tags": [
+                    "Khách Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Khách Hàng"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Xóa Tài Khoản Khách Hàng",
+                "tags": [
+                    "Account"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Khách Hàng"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    },
+                    "400": {
+                        "description": "Error Server"
+                    }
+                }
+            }
+        },
+        "/khachhang": {
+            "get": {
+                "summary": "Get Danh Sách Khách Hàng",
+                "tags": [
+                    "Khách Hàng"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Tạo Tài Khoản",
+                "tags": [
+                    "Account"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Signup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Cập Nhật Thông Tin Tài Khoản",
+                "tags": [
+                    "Account"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Profile"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/tkkhachhang/{tk}": {
+            "get": {
+                "summary": "Get Thông Tin Khách Hàng Theo Tài Khoản",
+                "tags": [
+                    "Khách Hàng"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "tk",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Tài Khoản Khách Hàng"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/createadmin": {
+            "post": {
+                "summary": "Tạo Tài Khoản Admin",
+                "tags": [
+                    "Admin"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Signup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/khachhangforadmin/{Role}": {
+            "get": {
+                "summary": "Tất Cả Tài Khoản",
+                "tags": [
+                    "Admin"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Role",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/khachhangforadmin/{Role}/{page}/{limit}": {
+            "get": {
+                "summary": "Phân Trang Cho Tất Cả Tài Khoản",
+                "tags": [
+                    "Admin"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Role",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Trang",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Số Tài Khoản Trong 1 Trang",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/setRole": {
+            "put": {
+                "summary": "Set Quyền Admin",
+                "tags": [
+                    "Admin"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id": {
+                                        "type": "array"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "id": [
+                                    "as5d4a89sda941a23s1da8s44da",
+                                    "as5d4a89sda941a23s1da8s44da"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "Đăng Nhập",
+                "tags": [
+                    "Account"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Signin"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/khachhangmk": {
+            "put": {
+                "summary": "Cập Nhật Mật Khẩu",
+                "tags": [
+                    "Account"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string"
+                                    },
+                                    "Matkhaued": {
+                                        "type": "string"
+                                    },
+                                    "newMatkhau": {
+                                        "type": "string"
+                                    },
+                                    "ConfirmMatKhau": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "id": "6216e91573fe0835950efa07",
+                                    "Matkhaued": "12",
+                                    "newMatkhau": "123",
+                                    "ConfirmMatKhau": "123"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/nhaxuatban": {
+            "get": {
+                "summary": "Get Danh Sách Nhà Xuất Bản",
+                "tags": [
+                    "Nhà Xuất Bản"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Thêm Nhà Xuất Bản Mới",
+                "tags": [
+                    "Nhà Xuất Bản"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NXBnoid"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Nhà Xuất Bản Mới",
+                "tags": [
+                    "Nhà Xuất Bản"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NXB"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/nhaxuatbanbyid/{id}": {
+            "get": {
+                "summary": "Tìm Nhà Xuất Bản Theo ID",
+                "tags": [
+                    "Nhà Xuất Bản"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Nhà Xuất Bản Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Update Nhà Xuất Bản Mới",
+                "tags": [
+                    "Nhà Xuất Bản"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Nhà Xuất Bản Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/sach": {
+            "get": {
+                "summary": "Get Danh Sách Book",
+                "tags": [
+                    "Sách"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Thêm Sách Mới",
+                "tags": [
+                    "Sách"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NewBook"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Cập Nhật Book Theo ID",
+                "tags": [
+                    "Sách"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RepairBook"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/sachbyid/{id}": {
+            "get": {
+                "summary": "Get Thông Tin Sách Theo ID",
+                "tags": [
+                    "Sách"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Sách"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Xóa Book Theo ID",
+                "tags": [
+                    "Sách"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Sách"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/sachbyCD/{idCD}": {
+            "get": {
+                "summary": "Get Thông Tin Sách Theo Chủ Đề",
+                "tags": [
+                    "Sách"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "idCD",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Chủ Đề"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },    
+        "/sachtimestamps": {
+            "get": {
+                "summary": "Get 3 Cuốn Sách Mới Nhất Được Thêm Vào",
+                "tags": [
+                    "Sách"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/sachpagination/{page}/{limit}": {
+            "get": {
+                "summary": "Phân Trang",
+                "tags": [
+                    "Sách"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Nhập Trang Sách"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Nhập Số Sách Sẽ Xuất Hiện Trong 1 Trang Nên là 4"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/sachpaginationbychude/{id}/{page}/{limit}": {
+            "get": {
+                "summary": "Cũng Là Phân Trang Nhưng Theo Chủ Đề",
+                "tags": [
+                    "Sách"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập ID Chủ Đề"
+                    },
+                    {
+                        "in": "path",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Nhập Trang Sách"
+                    },
+                    {
+                        "in": "path",
+                        "name": "limit",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        },
+                        "description": "Nhập Số Sách Sẽ Xuất Hiện Trong 1 Trang Nên là 4"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/sachpaginationSearch": {
+            "post": {
+                "summary": "Cũng Là Phân Trang Nhưng Theo KeyWord",
+                "tags": [
+                    "Sách"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Nhập KeyWord Để Tìm Sách",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "keyword": {
+                                        "type": "string"
+                                    },
+                                    "page": {
+                                        "type": "number"
+                                    },
+                                    "limit": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "keyword": "sach tieng viet",
+                                    "page": 1,
+                                    "limit": 8
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/sachbyname": {
+            "post": {
+                "summary": "Tìm Kiếm",
+                "tags": [
+                    "Sách"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Nhập KeyWord Để Tìm Sách",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "sach tieng viet"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/sachbanchayfirst": {
+            "get": {
+                "summary": "Get 4 Sách Theo Số lượng bán được",
+                "tags": [
+                    "Sách"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/sachbanchaysecond": {
+            "get": {
+                "summary": "Get 4 Sách Theo Số lượng bán được Bỏ Qua 4 cuốn đầu tiên",
+                "tags": [
+                    "Sách"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Data"
+                    }
+                }
+            }
+        },
+        "/tacgia": {
+            "get": {
+                "summary": "Get Danh Sách Tác Giả",
+                "tags": [
+                    "Tác Giả"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Thêm Tác Giả Mới",
+                "tags": [
+                    "Tác Giả"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TGnoid"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Cập Nhật Thông Tin Tác Giả",
+                "tags": [
+                    "Tác Giả"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TG"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        },
+        "/tacgiabyid/{id}": {
+            "get": {
+                "summary": "Tìm Tác Giả Theo ID",
+                "tags": [
+                    "Tác Giả"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Tác Giả Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Xóa Tác Giả",
+                "tags": [
+                    "Tác Giả"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập Mã Tác Giả Vào Đây"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Không Có Gì Ở Đây Hết"
+                    }
+                }
+            }
+        }
+    }
+}
