@@ -43,7 +43,6 @@ require("./Modules/routes/sach.route")(app);
 require("./Modules/routes/tacgia.route")(app);
 require("./Modules/routes/Banner.route")(app);
 require("./Modules/routes/UploadImage.route")(app);
-require("./Modules/routes/Sendmail.route")(app);
 require("./Modules/routes/GETCDTGNXB.route")(app);
 
 //Mở cổng server kết nối tới Mongodb

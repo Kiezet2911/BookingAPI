@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-            "url": "https://bookingapiiiii.herokuapp.com"
+            "url": "http://localhost:3000"
         }
     ],
     "tags": [
@@ -19,10 +19,7 @@
         },
         {
             "name": "page-home"
-        },
-        {
-            "name": "Mail"
-        },
+        },    
         {
             "name": "Upload Image"
         },
@@ -849,30 +846,6 @@
                 "summary": "Những Cuốn Sách Đã Bị Xóa",
                 "tags": [
                     "page-insert-new-book"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Không Có Gì Ở Đây Hết"
-                    }
-                }
-            }
-        },
-        "/Sendmail/{Mail}": {
-            "get": {
-                "summary": "Gửi Mail",
-                "tags": [
-                    "Mail"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "Mail",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "description": "Nhập Mail Cần Gửi"
-                    }
                 ],
                 "responses": {
                     "200": {
@@ -2066,7 +2039,7 @@
                     }
                 }
             }
-        },    
+        },
         "/sachtimestamps": {
             "get": {
                 "summary": "Get 3 Cuốn Sách Mới Nhất Được Thêm Vào",

@@ -1,16 +1,15 @@
 const fs = require("fs");
 
-//Get List
 exports.UploadImage = async (req, res) => {
   if (typeof req.file == "undefined") {
     res.send({ Messager: "Không tìm thấy ảnh trong kho" });
   } else {
-    res.send({ data: req.file.publicUrl });
+    res.send({ data: req.file });
   }
 };
 
 exports.loadimgage = async (req, res) => {
-  let imgpath = "images/" + req.params.filename;
+  let imgpath = "images/upload/" + req.params.filename;
   fs.readFile(imgpath, (err, data) => {
     if (err) {
       res.send({ Messager: "Không tìm thấy ảnh trong kho" });

@@ -1,10 +1,17 @@
 module.exports = function (app) {
   var controller = require("../controller/UploadImage.controller");
   const multer = require("multer");
-  const FirebaseStorage = require('multer-firebase-storage')
-  const FBconfigStorage = require('../../config/firebase');
-  //config Storage Để Đẩy Ảnh Lên Amazon S3
-  const configStorage = FirebaseStorage(FBconfigStorage);
+
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'images/upload')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9) + ".png"
+      cb(null, file.fieldname + '-' + uniqueSuffix)
+    }
+  })
+
   //
   const imageUpload = multer({
     fileFilter(req, file, cb) {
@@ -13,7 +20,7 @@ module.exports = function (app) {
       }
       cb(undefined, true);
     },
-    storage: configStorage,
+    storage: storage,
     limits: {
       fileSize: 10000000, // 10000000 Bytes = 10 MB
     },
